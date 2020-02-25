@@ -76,7 +76,8 @@ class OrderItemInline(admin.StackedInline):
     template = 'shop/admin/edit_inline/stacked-order.html'
 
     def has_add_permission(self, request, obj=None):
-        return False
+        # mfatgg: fix last item of order was missing in list in admin view
+        return True
 
     def has_delete_permission(self, request, obj=None):
         return False
